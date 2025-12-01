@@ -7,7 +7,7 @@
   <style>
     :root { --w: 240px; --h: 320px; }
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, "...", Arial, "Noto Sans JP", "Apple Color Emoji", "Segoe UI Emoji";
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans JP", "Apple Color Emoji", "Segoe UI Emoji";
       font-size: 18px;
       margin: 0;
       color: #111;
@@ -22,155 +22,19 @@
       z-index: 10;
     }
     h1 { font-size: 20px; margin: 0; }
-  
     main {
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
       padding: 12px;
+      place-items: center;
     }
-    @media (min-width: 900px) {
-      main {
-        grid-template-columns: 2fr 1.4fr;
-        align-items: flex-start;
-      }
-    }
-
-    .panel {
-      background: #fff;
-      border-radius: 12px;
-      padding: 12px 14px;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
-      border: 1px solid #e5e7eb;
-    }
-    .panel h2 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .panel h2 span.icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      background: #eff6ff;
-      color: #2563eb;
-      font-size: 14px;
-    }
-    .panel p {
-      margin: 0 0 6px;
-      line-height: 1.5;
-      font-size: 14px;
-      color: #4b5563;
-    }
-    .panel .hint {
-      font-size: 13px;
-      color: #6b7280;
-      margin-top: 4px;
-    }
-    .panel .hint strong {
-      color: #2563eb;
-    }
-    .panel + .panel {
-      margin-top: 8px;
-    }
-
     .stage {
       display: flex;
       flex-direction: column;
       gap: 8px;
       align-items: center;
     }
-    .controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      justify-content: center;
-    }
-
-    button {
-      font: inherit;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      background: #f9fafb;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      min-width: 60px;
-      justify-content: center;
-    }
-    button.primary {
-      background: #2563eb;
-      border-color: #1d4ed8;
-      color: #fff;
-    }
-    button:disabled {
-      opacity: 0.5;
-      cursor: default;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      background: #eff6ff;
-      color: #1d4ed8;
-      border: 1px solid #bfdbfe;
-    }
-
-    #warning {
-      border-radius: 10px;
-      padding: 6px 10px;
-      font-size: 14px;
-      margin-bottom: 6px;
-      text-align: center;
-      border: 1px solid transparent;
-    }
-    #warning.ok {
-      background: #ecfdf3;
-      color: #166534;
-      border-color: #bbf7d0;
-    }
-    #warning.bad {
-      background: #fef2f2;
-      color: #b91c1c;
-      border-color: #fecaca;
-    }
-
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: flex-start;
-    }
-    .row > div {
-      flex: 1 1 150px;
-    }
-
-    #output {
-      white-space: pre;
-      font-size: 13px;
-      background: #0f172a;
-      color: #e5e7eb;
-      border-radius: 8px;
-      padding: 6px 8px;
-      border: 1px solid #1f2937;
-      min-height: 90px;
-      box-sizing: border-box;
-    }
-    .mono {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
-
     .pair {
       display: flex;
       gap: 8px;
@@ -183,142 +47,157 @@
       width: var(--w);
       height: var(--h);
       border: 1px solid #ddd;
-      border-radius: 10px;
-      background: #111827;
-      object-fit: cover;
+      background: #000;
+      border-radius: 6px;
     }
-    @media (max-width: 600px) {
-      :root { --w: min(42vw, 210px); --h: min(56vw, 280px); }
-      .pair {
-        flex-direction: row;
-      }
-    }
-
-    #logStatus {
-      font-size: 12px;
-      color: #6b7280;
-      margin-top: 4px;
-    }
-
-    .yt-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .yt-row {
+    .controls {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
+      gap: 8px;
+      justify-content: center;
     }
-    .yt-row input {
-      flex: 1 1 140px;
-      min-width: 0;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      font-size: 13px;
+    button {
+      font-size: 15px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+    }
+    button.primary {
+      background: #0ea5e9;
+      color: #fff;
+      border-color: #0ea5e9;
+    }
+    button:disabled { opacity: .6; cursor: not-allowed; }
+    .panel {
+      width: min(680px, 92vw);
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      white-space: pre-line;
+    }
+    #warning {
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      margin: 4px 0 0;
+    }
+    .ok { color: #16a34a; }
+    .bad { color: #dc2626; }
+    .hint { color: #666; font-size: 13px; }
+    .badge {
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:999px;
+      background:#f1f5f9;
+      font-size:12px;
+    }
+    @media (max-width: 760px) {
+      .pair { flex-direction: column; flex-wrap: nowrap; }
+    }
+    #canvas { display: none; }
+
+    /* ▼ YouTube用スタイル追加 ▼ */
+    input[type="url"] {
+      width: min(400px, 90vw);
+      padding: 8px;
+      font-size: 16px;
       box-sizing: border-box;
+    }
+    .yt-controls {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
     }
     iframe {
       width: 100%;
-      min-height: 200px;
-      border-radius: 10px;
-      border: 1px solid #e5e7eb;
-    }
-
-    footer {
-      font-size: 11px;
-      color: #9ca3af;
-      text-align: center;
-      padding: 8px 12px 16px;
+      max-width: 640px;
+      aspect-ratio: 16/9;
+      border: none;
+      border-radius: 8px;
+      background: #000;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>スマートフォン姿勢判定＋YouTube音あり再生</h1>
-    <p style="margin:4px 0 0;font-size:13px;color:#6b7280;">
-      前面カメラ＋傾きセンサで首の前傾姿勢を判定し、<strong>一定時間続くとビープ音</strong>で知らせます。
-    </p>
+    <h1>スマートフォン姿勢判定 <span class="badge">3</span></h1>
   </header>
 
   <main>
-    <!-- 左：カメラ＋姿勢判定 -->
-    <section class="panel">
-      <h2>
-        <span class="icon">📱</span> 姿勢判定（カメラ＋傾きセンサ）
-      </h2>
-      <p>
-        スマホを<strong>縦向き</strong>で持ち、顔が画面中央あたりに映るようにしてください。
-        iOS の場合、最初に「ジャイロ・傾きセンサ」の使用許可ダイアログが出ることがあります。
-      </p>
+    <!-- 姿勢判定ステージ -->
+    <section class="stage">
+      <div class="controls">
+        <button id="startBtn" class="primary">測定開始</button>
+        <button id="calibBtn" disabled>正しい姿勢の基準</button>
+        <button id="resetBtn" disabled>解除</button>
+      </div>
+      <div class="pair">
+        <video id="video" autoplay muted playsinline></video>
+        <canvas id="canvas"></canvas>
+      </div>
+    </section>
 
-      <div class="stage">
-        <div class="controls">
-          <button id="startBtn" class="primary">測定開始</button>
-          <button id="calibBtn" disabled>正しい姿勢の基準</button>
-          <button id="resetBtn" disabled>解除</button>
-        </div>
-        <div class="pair">
-          <video id="video" autoplay muted playsinline></video>
-          <canvas id="canvas" width="240" height="320"></canvas>
-        </div>
-        <div class="badge">
-          <span>ℹ️</span><span>顔＋端末の角度から「首が曲がりすぎ」の継続を検出</span>
+    <!-- 姿勢判定・ログパネル（グラフ削除済み） -->
+    <section class="panel">
+      <div id="warning" class="ok">測定待機中</div>
+      <div class="row">
+        <div>
+          <h3>現在値</h3>
+          <div id="output" class="mono">読み取り中...</div>
         </div>
       </div>
+      <p class="hint">
+        使い方：<strong>測定開始</strong> → 良い姿勢で <strong>基準ボタン</strong> を押し、メッセージに従って3秒静止 →
+        不要なら <strong>解除</strong>。iOS は開始時にセンサー許可が必要です。
+      </p>
 
-      <!-- 姿勢判定・ログパネル（グラフ削除済み） -->
-      <section class="panel">
-        <div id="warning" class="ok">測定待機中</div>
-        <div class="row">
-          <div>
-            <h3>現在値</h3>
-            <div id="output" class="mono">読み取り中...</div>
-          </div>
-        </div>
-        <p class="hint">
-          使い方：<strong>測定開始</strong> → 個人差が出る場合は正しい姿勢で <strong>基準ボタン</strong> →
-          不要なら <strong>解除</strong>。iOS は開始時にセンサー許可が必要です。
-        </p>
-
-        <!-- ▼ ログ操作UI（グラフはなし） ▼ -->
-        <div class="controls" style="margin-top:6px">
-          <button id="logStartBtn">ログ開始</button>
-          <button id="logStopBtn" disabled>ログ停止</button>
-          <button id="exportCsvBtn">CSVエクスポート</button>
-          <button id="clearLogBtn">ログ全削除</button>
-        </div>
-        <!-- ▲ ログ操作UI ▲ -->
-      </section>
+      <!-- ▼ ログ操作UI（グラフはなし） ▼ -->
+      <div class="controls" style="margin-top:6px">
+        <button id="logStartBtn">ログ開始</button>
+        <button id="logStopBtn" disabled>ログ停止</button>
+        <button id="exportCsvBtn">CSVエクスポート</button>
+        <button id="clearLogBtn">ログ全削除</button>
+      </div>
+      <!-- ▲ ログ操作UI ▲ -->
     </section>
 
     <!-- ▼ YouTube 音あり再生パネル ▼ -->
     <section class="panel">
-      <h2><span class="icon">🎧</span> YouTube 音あり再生</h2>
-      <p>
-        好きな動画を流しながら姿勢チェックができます。<br />
-        自動再生はブラウザや端末の仕様でブロックされる場合があります。
-      </p>
-
-      <div class="yt-wrap">
-        <div class="yt-row">
-          <input id="ytUrl" type="url" placeholder="YouTube の URL を貼り付け…" />
-          <button id="loadYtBtn">読み込む</button>
-        </div>
-        <iframe id="ytPlayer" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <h3>YouTube音あり再生テスト</h3>
+      <div class="yt-controls">
+        <input id="ytUrl" type="url" placeholder="YouTubeのURLを貼り付け">
+        <button id="loadYtBtn">読み込み</button>
       </div>
+      <iframe id="ytPlayer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+      <p class="hint">
+        🔊 「読み込み」ボタンを押すと音付きで自動再生を試みます。<br>
+        iPhoneやSafariでは自動再生が無音または停止する場合があります。<br>
+        その場合はプレイヤーの ▶ ボタンを押すと音が出ます。
+      </p>
     </section>
+    <!-- ▲ YouTube 音あり再生パネル ▲ -->
   </main>
 
-  <footer>
-    スマホだけで完結する実験用ツール / 傾き＋顔検出で首姿勢を簡易計測
-  </footer>
-
-  <!-- MediaPipe & Utils -->
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <!-- MediaPipe -->
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
   <script>
     // ========== 設定/状態 ==========
     const PARAMS = {
@@ -337,22 +216,22 @@
     const canvas = document.getElementById('canvas');
     const ctx    = canvas.getContext('2d');
     const output = document.getElementById('output');
-    const warning = document.getElementById('warning');
+    const warning= document.getElementById('warning');
     const startBtn = document.getElementById('startBtn');
     const calibBtn = document.getElementById('calibBtn');
     const resetBtn = document.getElementById('resetBtn');
 
     let rawPitch=0, rawRoll=0;
     let sPitch=0, sRoll=0, sYdiff=null, sNoseZ=null;
-    // ★ キャリブレーション用
-    let calibMode = false;
-    let calibSamples = [];
-    let calibStartTs = 0;
-
     let faceState = { dir: 'straight', prox: '通常距離' };
     let bentState = false;
     let enterStart = null, exitStart  = null;
     let wasDown = false, wasUp = false, wasClose = false, wasFar = false;
+
+    // ★ 追加：キャリブレーション状態
+    let calibMode = false;
+    let calibSamples = [];
+    let calibStartTs = 0;
 
     // UI最適化
     let lastWarnText = null, lastWarnBad = null;
@@ -366,10 +245,14 @@
     let audioCtx = null;
     let beepInterval = null;
 
-    function initAudio() {
-      if (audioCtx) return;
+    function ensureAudio() {
       try {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume?.();
+        }
       } catch (e) {
         console.warn('AudioContext 初期化に失敗:', e);
         audioCtx = null;
@@ -387,49 +270,25 @@
       osc.connect(g).connect(audioCtx.destination);
       osc.start();
       osc.stop(audioCtx.currentTime + dur);
+      osc.onended = () => { try { osc.disconnect(); g.disconnect(); } catch {} };
     }
 
     function startBeepLoop() {
-      if (!audioCtx) initAudio();
-      if (!audioCtx) return;
       if (beepInterval) return;
       playBeep(); // 入りで1回
-      beepInterval = setInterval(() => {
-        playBeep();
-      }, PARAMS.beep.intervalMs);
+      beepInterval = setInterval(playBeep, PARAMS.beep.intervalMs);
     }
 
     function stopBeepLoop() {
-      if (beepInterval) {
-        clearInterval(beepInterval);
-        beepInterval = null;
-      }
+      if (beepInterval) { clearInterval(beepInterval); beepInterval = null; }
     }
 
     // ========== センサー ==========
     function handleOrientation(e){
       rawPitch = (e.beta  ?? 0);
       rawRoll  = (e.gamma ?? 0);
-
       sPitch = PARAMS.alphaPitch * rawPitch + (1 - PARAMS.alphaPitch) * sPitch;
-      sRoll  = PARAMS.alphaRoll  * rawRoll  + (1 - PARAMS.alphaRoll)  * sRoll;
-    }
-
-    function startSensor(){
-      if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === 'function') {
-        DeviceOrientationEvent.requestPermission().then(state => {
-          if (state === 'granted') {
-            window.addEventListener('deviceorientation', handleOrientation);
-          } else {
-            alert('傾きセンサの許可が得られませんでした');
-          }
-        }).catch(err => {
-          console.error(err);
-          alert('センサ許可リクエスト中にエラーが発生しました');
-        });
-      } else {
-        window.addEventListener('deviceorientation', handleOrientation);
-      }
+      sRoll  = PARAMS.alphaRoll  * rawRoll  + (1 - PARAMS.alphaRoll ) * sRoll;
     }
 
     // ========== FaceMesh ==========
@@ -466,29 +325,34 @@
       sYdiff = (sYdiff == null) ? yDiff : PARAMS.alphaYdiff * yDiff + (1 - PARAMS.alphaYdiff) * sYdiff;
       sNoseZ = (sNoseZ == null) ? noseZ : PARAMS.alphaNoseZ * noseZ + (1 - PARAMS.alphaNoseZ) * sNoseZ;
 
-      // ★ キャリブレーション中ならサンプルを蓄積
+      // ★ 3秒キャリブレーション中：サンプルを蓄積
       if (calibMode) {
         calibSamples.push({ y: sYdiff, z: sNoseZ });
 
         if (now - calibStartTs >= 3000) {
           calibMode = false;
-
           if (calibSamples.length > 0) {
             const sum = calibSamples.reduce((acc, v) => {
               acc.y += v.y;
               acc.z += v.z;
               return acc;
             }, { y: 0, z: 0 });
-
             const n = calibSamples.length;
             PARAMS.calibYdiff = sum.y / n;
             PARAMS.calibNoseZ = sum.z / n;
-
             saveCalibration(PARAMS.calibYdiff, PARAMS.calibNoseZ);
-            setWarning(false, 'ニュートラル姿勢を登録しました');
+            setWarning(false, 'ニュートラルを登録しました');
           } else {
             setWarning(true, 'キャリブに失敗しました（サンプル0件）');
           }
+        }
+        // キャリブ中は判定・ログはスキップ（3秒だけ）
+        if (calibMode) {
+          output.textContent =
+            `キャリブレーション中...\n` +
+            `yDiff(平滑): ${sYdiff.toFixed(4)}\n` +
+            `noseZ(平滑): ${sNoseZ.toFixed(4)}`;
+          return;
         }
       }
 
@@ -501,8 +365,9 @@
       // スマホ角度も考慮した首曲がり最終判定
       const pitchAbs = Math.abs(sPitch);
       const isBentNow = isBent(faceState.dir, faceState.prox, pitchAbs);
-      updateSustain(isBentNow);
+      updateSustain(isBentNow); // ★ 表示更新はこの中で毎フレーム同期
 
+      // デバッグ出力
       const combined = getCombinedForDebug();
       output.textContent =
         `Pitch: ${sPitch.toFixed(2)}°\n` +
@@ -520,30 +385,15 @@
     function drawPoint(normLandmark, color) {
       const x = normLandmark.x * canvas.width;
       const y = normLandmark.y * canvas.height;
-      ctx.beginPath();
-      ctx.arc(x, y, 3, 0, Math.PI * 2);
-      ctx.fillStyle = color;
-      ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI * 2); ctx.fillStyle = color; ctx.fill();
     }
 
-    // ========== カメラ起動 ==========
-    function startCamera(){
-      if (camera) return;
-      camera = new Camera(video, {
-        onFrame: async () => { await faceMesh.send({ image: video }); },
-        width:  240,
-        height: 320
-      });
-      camera.start();
-    }
-
-    // ========== 表示系 ==========
-    function setWarning(isBad, text){
-      if (text === lastWarnText && isBad === lastWarnBad) return;
-      lastWarnText = text;
-      lastWarnBad  = isBad;
-      warning.textContent = text;
-      warning.className = isBad ? 'bad' : 'ok';
+    // === combined(y+z) を返す（キャリブ有無に対応）
+    function getCombinedForDebug(){
+      if (PARAMS.calibYdiff != null && PARAMS.calibNoseZ != null){
+        return (sYdiff - PARAMS.calibYdiff) + (sNoseZ - PARAMS.calibNoseZ);
+      }
+      return (sYdiff ?? 0) + (sNoseZ ?? 0);
     }
 
     // ★ 顔向き：yDiff + noseZ で判定（ヒステリシス）
@@ -563,44 +413,31 @@
       if (!wasUp && combined > 0.05) { wasUp = true; wasDown = false; return 'up'; }
       if (wasUp && combined < 0.05 - band) { wasUp = false; }
 
+      if (wasDown) return 'down';
+      if (wasUp)   return 'up';
       return 'straight';
     }
 
-    // ★ 顔距離：noseZ 単体で判定（ヒステリシス）
-    function classifyProximity(z){
-      const band = PARAMS.absZExitBand ?? 0.02;
-
-      if (PARAMS.calibYdiff != null && PARAMS.calibNoseZ != null){
+    function classifyProximity(z) {
+      if (PARAMS.calibNoseZ != null) {
         const dz = z - PARAMS.calibNoseZ;
         if (!wasClose && dz <= PARAMS.closeEnter) { wasClose = true; wasFar = false; return '顔が近い'; }
-        if (!wasFar   && dz >= PARAMS.farEnter)   { wasFar   = true; wasClose = false; return '顔が遠い'; }
-
-        if (wasClose && dz > PARAMS.closeExit + band) { wasClose = false; }
-        if (wasFar   && dz < PARAMS.farExit   - band) { wasFar   = false; }
-
+        if (wasClose && dz >= PARAMS.closeExit)   { wasClose = false; }
+        if (!wasFar && dz >= PARAMS.farEnter)     { wasFar = true; wasClose = false; return '顔が遠い'; }
+        if (wasFar && dz <= PARAMS.farExit)       { wasFar = false; }
         if (wasClose) return '顔が近い';
         if (wasFar)   return '顔が遠い';
         return '通常距離';
       } else {
-        const close = PARAMS.absCloseEnter, far = PARAMS.absFarEnter;
-        if (!wasClose && z <= close) { wasClose = true; wasFar = false; return '顔が近い'; }
-        if (!wasFar   && z >= far)   { wasFar   = true; wasClose = false; return '顔が遠い'; }
-
+        const close = PARAMS.absCloseEnter, far = PARAMS.absFarEnter, band = PARAMS.absZExitBand;
+        if (!wasClose && z < close) { wasClose = true; wasFar = false; return '顔が近い'; }
         if (wasClose && z > close + band) { wasClose = false; }
-        if (wasFar   && z < far   - band) { wasFar   = false; }
-
+        if (!wasFar && z > far) { wasFar = true; wasClose = false; return '顔が遠い'; }
+        if (wasFar && z < far - band) { wasFar = false; }
         if (wasClose) return '顔が近い';
         if (wasFar)   return '顔が遠い';
         return '通常距離';
       }
-    }
-
-    // ★ combined(y+z) を返す（キャリブ有無に対応）
-    function getCombinedForDebug(){
-      if (PARAMS.calibYdiff != null && PARAMS.calibNoseZ != null){
-        return (sYdiff - PARAMS.calibYdiff) + (sNoseZ - PARAMS.calibNoseZ);
-      }
-      return (sYdiff ?? 0) + (sNoseZ ?? 0);
     }
 
     // ★ 最終判定（端末角度も考慮）
@@ -610,161 +447,120 @@
       return (dir === 'down');
     }
 
-    // ★ 修正：表示は毎フレーム同期。顔が見えていれば bentState の内容で常に上書き。
+    // ★ 修正：キャリブ中は判定しない・ビープ止める
     function updateSustain(isNow){
-      const t = performance.now();
-      let changed = false;
-
-      if (isNow) {
-        if (!bentState) {
-          if (enterStart == null) enterStart = t;
-          if (t - enterStart >= PARAMS.sustainMs) {
-            bentState = true;
-            exitStart = null;
-            changed = true;
-          }
-        } else {
-          exitStart = null;
-        }
-      } else {
-        enterStart = null;
-        if (bentState) {
-          if (exitStart == null) exitStart = t;
-          if (t - exitStart >= PARAMS.clearMs) {
-            bentState = false;
-            changed = true;
-          }
-        }
-      }
-
-      if (!faceDetected) {
+      // キャリブ中は常に「判定オフ」
+      if (calibMode) {
         bentState = false;
         enterStart = exitStart = null;
         stopBeepLoop();
-        setWarning(true, '顔が検出できません');
+        setWarning(false, 'キャリブレーション中: 良い姿勢で3秒間静止してください');
         return;
       }
 
-      if (bentState) {
-        setWarning(true, '首が曲がりすぎています（注意）');
-        startBeepLoop();
+      const t = performance.now();
+      if (isNow) {
+        if (enterStart == null) enterStart = t;
+        exitStart = null;
+        const elapsed = t - enterStart;
+        if (!bentState && elapsed >= PARAMS.sustainMs) {
+          bentState = true;
+          setWarning(true, '首が曲がっています'); // 入口で1回
+          startBeepLoop();
+        }
       } else {
-        setWarning(false, '姿勢良好 / 計測中');
-        stopBeepLoop();
+        if (exitStart == null) exitStart = t;
+        enterStart = null;
+        const elapsed = t - exitStart;
+        if (bentState && elapsed >= PARAMS.clearMs) {
+          bentState = false;
+          setWarning(false, '首は曲がっていません'); // 退出で1回
+          stopBeepLoop();
+        }
+      }
+
+      // 毎フレーム：顔が見えている間は最新状態を反映
+      if (faceDetected) {
+        setWarning(bentState, bentState ? '首が曲がっています' : '首は曲がっていません');
       }
     }
 
-    // ========== ログ（IndexedDB） ==========
-    const DB_NAME = 'posture-db';
-    const DB_VERSION = 1;
-    const STORE_NAME = 'logs';
+    // 任意で即時更新したいとき用
+    function refreshWarningNow(){
+      if (!faceDetected) return;
+      setWarning(bentState, bentState ? '首が曲がっています' : '首は曲がっていません');
+    }
 
-    let db = null;
-    let LOGGING = false;
-    let lastLogTs = 0;
+    function setWarning(bad, text){
+      if (text === lastWarnText && bad === lastWarnBad) return;
+      lastWarnText = text; lastWarnBad = bad;
+      warning.textContent = text;
+      warning.className = bad ? 'bad' : 'ok';
+    }
 
-    function openDB(){
-      return new Promise((resolve, reject)=>{
-        const req = indexedDB.open(DB_NAME, DB_VERSION);
-        req.onupgradeneeded = e => {
-          const db = e.target.result;
-          if (!db.objectStoreNames.contains(STORE_NAME)) {
-            db.createObjectStore(STORE_NAME, { keyPath: 'id', autoIncrement: true });
+    async function initCamera(){
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'user', width: {ideal: 640}, height: {ideal: 480} },
+        audio: false
+      });
+      video.srcObject = stream;
+      await new Promise(r => video.onloadedmetadata = r);
+      canvas.width = video.videoWidth; canvas.height = video.videoHeight;
+    }
+
+    async function startAll(){
+      if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function'){
+        try {
+          const res = await DeviceOrientationEvent.requestPermission();
+          if (res === 'granted') window.addEventListener('deviceorientation', handleOrientation);
+          else { output.textContent = 'センサーの利用が許可されませんでした。'; return; }
+        } catch { output.textContent = 'センサー許可でエラーが発生しました。'; return; }
+      } else {
+        window.addEventListener('deviceorientation', handleOrientation);
+      }
+
+      await initCamera();
+
+      // ユーザー操作直後にオーディオを有効化（iOS自動再生制限対策）
+      ensureAudio();
+
+      camera = new Camera(video, {
+        onFrame: async () => {
+          const t = performance.now();
+          if (t - lastInferenceTs >= 100) {
+            await faceMesh.send({ image: video });
           }
-        };
-        req.onsuccess = e => { db = e.target.result; resolve(db); };
-        req.onerror = e => reject(e.target.error);
+        },
+        width: 640, height: 480
       });
-    }
+      camera.start();
 
-    async function addLogSample(){
-      if (!LOGGING) return;
-      const now = Date.now();
-      if (now - lastLogTs < 1000) return;
-      lastLogTs = now;
+      startBtn.disabled = true; calibBtn.disabled = false; resetBtn.disabled = false;
 
-      if (!db) await openDB();
-      const tx = db.transaction(STORE_NAME, 'readwrite');
-      const store = tx.objectStore(STORE_NAME);
-      const item = {
-        ts: now,
-        iso: new Date(now).toISOString(),
-        pitch: sPitch,
-        roll: sRoll,
-        ydiff: sYdiff,
-        noseZ: sNoseZ,
-        dir: faceState.dir,
-        prox: faceState.prox,
-        bent: bentState
-      };
-      store.add(item);
-    }
-
-    async function getAllLogs(){
-      if (!db) await openDB();
-      return new Promise((resolve, reject)=>{
-        const tx = db.transaction(STORE_NAME, 'readonly');
-        const store = tx.objectStore(STORE_NAME);
-        const req = store.getAll();
-        req.onsuccess = e => resolve(e.target.result || []);
-        req.onerror = e => reject(e.target.error);
-      });
-    }
-
-    async function clearAllLogs(){
-      if (!db) await openDB();
-      return new Promise((resolve, reject)=>{
-        const tx = db.transaction(STORE_NAME, 'readwrite');
-        const store = tx.objectStore(STORE_NAME);
-        const req = store.clear();
-        req.onsuccess = ()=>{ alert('ログを全削除しました'); resolve(); };
-        req.onerror = e => reject(e.target.error);
-      });
-    }
-
-    async function flushLogs(){
-      // IndexedDB 内に溜めているだけなので、特に flush は不要
-      return;
-    }
-
-    async function exportCSV(){
-      const logs = await getAllLogs();
-      if (!logs.length){
-        alert('エクスポート対象のログがありません');
-        return;
+      const saved = loadCalibration();
+      if (saved) {
+        PARAMS.calibYdiff = saved.y; PARAMS.calibNoseZ = saved.z;
+        setWarning(false, '測定中...');
+      } else {
+        setWarning(false, '測定中...');
       }
-      const header = [
-        'id','time_iso','pitch_deg','roll_deg','ydiff','noseZ',
-        'dir','prox','bent'
-      ];
-      const rows = [header.join(',')];
-      logs.forEach((row, idx)=>{
-        rows.push([
-          idx+1,
-          row.iso,
-          row.pitch?.toFixed(4),
-          row.roll?.toFixed(4),
-          row.ydiff?.toFixed(6),
-          row.noseZ?.toFixed(6),
-          row.dir,
-          row.prox,
-          row.bent
-        ].join(','));
-      });
-      const blob = new Blob([rows.join('\n')], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      const stamp = new Date().toISOString().replace(/[:.]/g,'-');
-      a.download = `posture_log_${stamp}.csv`;
-      a.click();
-      URL.revokeObjectURL(url);
+
+      // タブ非表示で一時停止／復帰
+      document.addEventListener('visibilitychange', () => {
+        if (!camera) return;
+        if (document.hidden) {
+          try { camera.stop(); } catch {}
+          stopBeepLoop();
+        } else {
+          try { camera.start(); } catch {}
+        }
+      }, { passive: true });
     }
 
-    // ========== キャリブ（保存・解除） ==========
+    // ★ ここを「3秒平均キャリブ」に変更
     function calibrate(){
       if (sYdiff == null || sNoseZ == null) {
-        alert('まだ値が安定していません。数秒待ってから再度お試しください。');
+        setWarning(true, 'まだ値が安定していません。数秒待ってからもう一度試してください');
         return;
       }
       calibMode = true;
@@ -775,6 +571,9 @@
 
     function resetCalibration(){
       PARAMS.calibYdiff = null; PARAMS.calibNoseZ = null;
+      calibMode = false;
+      calibSamples = [];
+      calibStartTs = 0;
       localStorage.removeItem('posture-calib');
       setWarning(false, 'キャリブを解除しました');
     }
@@ -782,18 +581,167 @@
     function saveCalibration(y, z){ try { localStorage.setItem('posture-calib', JSON.stringify({ y, z })); } catch {} }
     function loadCalibration(){ try { return JSON.parse(localStorage.getItem('posture-calib')); } catch { return null; } }
 
-    // ========== 初期化 ==========
-    window.addEventListener('load', async ()=>{
-      startBtn.addEventListener('click', ()=>{
-        startBtn.disabled = true;
-        calibBtn.disabled = false;
-        resetBtn.disabled = false;
-        startCamera();
-        startSensor();
-        initAudio();
-        setWarning(false, '計測中...');
+    // ============================== ログ保存（IndexedDB） ==============================
+    const DB_NAME = 'posture-db';
+    const STORE = 'logs';
+    let db = null;
+
+    function openDB(){
+      return new Promise((resolve, reject) => {
+        const req = indexedDB.open(DB_NAME, 1);
+        req.onupgradeneeded = (e) => {
+          const _db = e.target.result;
+          if (!_db.objectStoreNames.contains(STORE)) {
+            const os = _db.createObjectStore(STORE, { keyPath: 'ts' });
+            os.createIndex('day', 'day', { unique: false });
+            os.createIndex('day_hour', ['day','hour'], { unique: false });
+          }
+        };
+        req.onsuccess = () => { db = req.result; resolve(db); };
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    function ymdFromTs(ts){
+      const d = new Date(ts);
+      const y = d.getFullYear();
+      const m = String(d.getMonth()+1).padStart(2,'0');
+      const day = String(d.getDate()).padStart(2,'0');
+      return `${y}-${m}-${day}`;
+    }
+
+    // JST(+09:00) の ISO風文字列（ミリ秒付き）
+    function toJstIso(ts){
+      const d = new Date(ts);
+      const parts = Object.fromEntries(
+        new Intl.DateTimeFormat('sv-SE', {
+          timeZone: 'Asia/Tokyo',
+          year: 'numeric', month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit', second: '2-digit',
+          hour12: false
+        }).formatToParts(d).map(p => [p.type, p.value])
+      );
+      const ms = String(d.getMilliseconds()).padStart(3,'0');
+      return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}.${ms}+09:00`;
+    }
+
+    let LOGGING = false;
+    let logBuffer = [];
+    let lastFlush = 0;
+    const LOG_INTERVAL_MS = 1000;
+    const FLUSH_MS = 5000;
+    let lastLogAt = 0;
+
+    async function addLogSample(){
+      if (!LOGGING) return;
+      const now = performance.now();
+      if (now - lastLogAt < LOG_INTERVAL_MS) return;
+      lastLogAt = now;
+
+      const ts = Date.now();
+      const d = new Date(ts);
+      const entry = {
+        ts,
+        day: ymdFromTs(ts),
+        hour: d.getHours(),
+        pitch: sPitch, roll: sRoll,
+        y: sYdiff, z: sNoseZ,
+        dir: faceState.dir,
+        prox: faceState.prox,
+        bent: !!bentState
+      };
+      logBuffer.push(entry);
+
+      if (ts - lastFlush >= FLUSH_MS) {
+        await flushLogs();
+      }
+    }
+
+    async function flushLogs(){
+      if (!db || logBuffer.length === 0) return;
+      const tx = db.transaction(STORE, 'readwrite');
+      const store = tx.objectStore(STORE);
+      for (const e of logBuffer) store.put(e);
+      await new Promise((res, rej) => { tx.oncomplete = res; tx.onerror = () => rej(tx.error); });
+      logBuffer = [];
+      lastFlush = Date.now();
+    }
+
+    async function exportCSV(){
+      await flushLogs();
+      if (!db) await openDB();
+
+      const tx = db.transaction(STORE, 'readonly');
+      const store = tx.objectStore(STORE);
+      const rows = [['ts','iso','day','hour','pitch','roll','y','z','dir','prox','bent']];
+      const req = store.openCursor();
+      await new Promise((resolve, reject) => {
+        req.onsuccess = (e) => {
+          const cur = e.target.result;
+          if (!cur) return resolve();
+          const v = cur.value;
+          rows.push([
+            v.ts,
+            toJstIso(v.ts),
+            v.day,
+            v.hour,
+            v.pitch?.toFixed?.(3),
+            v.roll?.toFixed?.(3),
+            v.y?.toFixed?.(5),
+            v.z?.toFixed?.(5),
+            v.dir,
+            v.prox,
+            v.bent ? 1 : 0
+          ]);
+          cur.continue();
+        };
+        req.onerror = () => reject(req.error);
       });
 
+      const csv = rows.map(r => r.join(',')).join('\n');
+      const blob = new Blob([csv], {type:'text/csv'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const stamp = new Date().toISOString().slice(0,19).replace(/[:T]/g,'-');
+      a.href = url; a.download = `posture_logs_${stamp}.csv`;
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    async function clearAllLogs(){
+      if (!db) await openDB();
+      await flushLogs();
+      const tx = db.transaction(STORE, 'readwrite');
+      tx.objectStore(STORE).clear();
+      await new Promise((res, rej) => { tx.oncomplete = res; tx.onerror = () => rej(tx.error); });
+      setWarning(false, 'ログを全削除しました');
+    }
+
+    // ========== YouTube URL 解析関数 ==========
+    function parseYouTube(urlStr) {
+      try {
+        const u = new URL(urlStr);
+        const host = u.hostname.replace(/^www\./, '');
+        let id = null;
+        if (host === 'youtube.com' || host === 'm.youtube.com') {
+          if (u.pathname === '/watch') id = u.searchParams.get('v');
+          else if (u.pathname.startsWith('/shorts/')) id = u.pathname.split('/')[2];
+          else if (u.pathname.startsWith('/live/'))   id = u.pathname.split('/')[2];
+        } else if (host === 'youtu.be') {
+          id = u.pathname.slice(1);
+        }
+        return id;
+      } catch {
+        return null;
+      }
+    }
+
+    // ========== UI配線 ==========
+    window.addEventListener('load', async () => {
+      await openDB();
+
+      // 姿勢判定ボタン
+      startBtn.addEventListener('click', startAll);
       calibBtn.addEventListener('click', calibrate);
       resetBtn.addEventListener('click', resetCalibration);
 
@@ -803,17 +751,13 @@
       const clearLogBtn  = document.getElementById('clearLogBtn');
 
       if (logStartBtn) logStartBtn.addEventListener('click', async ()=>{
-        LOGGING = true;
-        lastLogTs = 0;
-        await flushLogs();
-        // setWarning は使わない（表示を壊さない）
+        LOGGING = true; lastLogAt = 0; lastFlush = 0;
         output.textContent += '\n[LOG] ログ記録を開始しました';
         logStartBtn.disabled = true; logStopBtn.disabled  = false;
       });
 
       if (logStopBtn) logStopBtn.addEventListener('click', async ()=>{
         LOGGING = false; await flushLogs();
-        // setWarning は使わない（表示を壊さない）
         output.textContent += '\n[LOG] ログ記録を停止しました';
         logStartBtn.disabled = false; logStopBtn.disabled  = true;
       });
@@ -826,34 +770,13 @@
       const loadYtBtn = document.getElementById('loadYtBtn');
       const ytPlayer = document.getElementById('ytPlayer');
 
-      function parseYouTube(url){
-        if (!url) return null;
-        try {
-          const u = new URL(url);
-          if (u.hostname.includes('youtu.be')) {
-            return u.pathname.slice(1);
-          }
-          if (u.hostname.includes('youtube.com')) {
-            if (u.searchParams.get('v')) {
-              return u.searchParams.get('v');
-            }
-            const m = u.pathname.match(/\/embed\/([^/]+)/);
-            if (m) return m[1];
-          }
-          return null;
-        } catch {
-          return null;
-        }
-      }
-
-      if (loadYtBtn && ytUrl && ytPlayer){
+      if (loadYtBtn && ytUrl && ytPlayer) {
         loadYtBtn.addEventListener('click', () => {
           const id = parseYouTube(ytUrl.value.trim());
           if (!id) {
             alert("URLを正しく認識できませんでした");
             return;
           }
-          // 音付き自動再生を試す
           ytPlayer.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
         });
       }
